@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+
+    <style>
+        body{
+            text-align-last: center;
+        }
+
+        .form-group{
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .inputstate {
+            width: 25%;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <th:block th:fragment="content">
+        <div class="content">
+            <form th:action="@{/account/success}" th:method="post">
+                <div class="form-group">
+                    <label> <img src="/assets/titleR.png"></label>
+                    <br>
+                    <input type="email" class="form-control inputstate" name="email" placeholder="E-mail을 입력하세요."><br><br>
+                    <input type="password" class="form-control inputstate" name="password" placeholder="비밀번호를 입력하세요."><br><br>
+                    <input type="text" class="form-control inputstate" name="name" placeholder="닉네임을 입력하세요."><br><br>
+                    <button type="submit" class="btn btn-primary">완료</button>
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                    <input type="hidden" class="form-control inputstate" name="fromsocial" value="false" readonly><br>
+                    <input type="hidden" class="form-control inputstate" name="roleset" value="USER" readonly><br>
+                </div>
+                <div class="uploadResult">
+                </div>
+            </form>
+        </div>
+    </th:block>
+</th:block>
+</body>
+</html>
