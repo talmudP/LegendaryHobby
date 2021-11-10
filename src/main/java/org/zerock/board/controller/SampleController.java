@@ -12,30 +12,30 @@ import org.zerock.board.service.ClubMemberService;
 
 @Controller
 @Log4j2
-@RequestMapping("/account")
+@RequestMapping("account")
 @RequiredArgsConstructor
 public class SampleController {
 
     private final ClubMemberService clubMemberService;
 
-    @GetMapping("/register")
+    @GetMapping("register")
     public void exRegister() {
         log.info("exRegister..........");
     }
 
-    @GetMapping("/success")
+    @GetMapping("success")
     public void exsuccess() {
         log.info("success..........");
     }
 
-    @PostMapping("/success")
+    @PostMapping("success")
     public void exsuccessPost(ClubMemberDTO dto) {
         log.info("successPost..........");
         clubMemberService.register(dto);
         log.info("dto..." + dto);
     }
 
-    @GetMapping("/login")
+    @GetMapping("login")
     public void exLogin() {
         log.info("exLogin..........");
     }

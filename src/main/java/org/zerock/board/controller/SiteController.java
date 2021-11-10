@@ -7,37 +7,37 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/site")
+@RequestMapping("site")
 @Log4j2
 @RequiredArgsConstructor
 public class SiteController {
 
-    @GetMapping({"/workshop"})
+    @GetMapping({"workshop"})
     public void getWorkshop(){
         log.info("workshop");
     }
 
-    @GetMapping({"/workshopW"})
+    @GetMapping({"workshopW"})
     public void getWorkshopW(){
         log.info("workshopW");
     }
 
-    @GetMapping({"/workshopS"})
+    @GetMapping({"workshopS"})
     public void getWorkshopS(){
         log.info("workshopS");
     }
 
-    @GetMapping({"/workshopM"})
+    @GetMapping({"workshopM"})
     public void getWorkshopM(){
         log.info("workshopM");
     }
 
-    @GetMapping({"/workshopC"})
+    @GetMapping({"workshopC"})
     public void getWorkshopC(){
         log.info("workshopC");
     }
 
-    @GetMapping({"/hob"})
+    @GetMapping({"hob"})
     public void getHob(){
         log.info("hob");
     }

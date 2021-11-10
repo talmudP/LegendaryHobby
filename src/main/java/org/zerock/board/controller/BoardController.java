@@ -14,47 +14,47 @@ import org.zerock.board.dto.PageRequestDTO;
 import org.zerock.board.service.BoardService;
 
 @Controller
-@RequestMapping("/board")
+@RequestMapping("board")
 @Log4j2
 @RequiredArgsConstructor
 public class BoardController {
 
     private final BoardService boardService;
 
-    @GetMapping("/index")
+    @GetMapping("index")
     public void index() {
         log.info("index....");
     }
 
-    @GetMapping("/Mlist")
+    @GetMapping("Mlist")
     public void Mlist(PageRequestDTO pageRequestDTO, Model model){
         log.info("Mlist.................."+ pageRequestDTO);
 
         model.addAttribute("result", boardService.getList(pageRequestDTO));
         log.info(boardService.getList(pageRequestDTO));
     }
-    @GetMapping("/Blist")
+    @GetMapping("Blist")
     public void Blist(PageRequestDTO pageRequestDTO, Model model){
         log.info("Blist.................."+ pageRequestDTO);
 
         model.addAttribute("result", boardService.getList(pageRequestDTO));
         log.info(boardService.getList(pageRequestDTO));
     }
-    @GetMapping("/Rlist")
+    @GetMapping("Rlist")
     public void Rlist(PageRequestDTO pageRequestDTO, Model model){
         log.info("Rlist.................."+ pageRequestDTO);
 
         model.addAttribute("result", boardService.getList(pageRequestDTO));
         log.info(boardService.getList(pageRequestDTO));
     }
-    @GetMapping("/Slist")
+    @GetMapping("Slist")
     public void Slist(PageRequestDTO pageRequestDTO, Model model){
         log.info("Slist.................."+ pageRequestDTO);
 
         model.addAttribute("result", boardService.getList(pageRequestDTO));
         log.info(boardService.getList(pageRequestDTO));
     }
-    @GetMapping("/Dlist")
+    @GetMapping("Dlist")
     public void Dlist(PageRequestDTO pageRequestDTO, Model model){
         log.info("Dlist.................."+ pageRequestDTO);
 
@@ -63,12 +63,12 @@ public class BoardController {
     }
 
 
-    @GetMapping("/register")
+    @GetMapping("register")
     public void register(){
         log.info("register get...");
     }
 
-    @PostMapping("/register")
+    @PostMapping("register")
     public String registerPost(BoardDTO dto, RedirectAttributes redirectAttributes){
 
         log.info("dto..." + dto);
@@ -81,7 +81,7 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
-    @GetMapping({"/read","/modify"})
+    @GetMapping({"read","modify"})
     public void read(@ModelAttribute("requestDTO") PageRequestDTO pageRequestDTO, Long bno, Model model){
 
         log.info("bno : "+ bno);
@@ -93,7 +93,7 @@ public class BoardController {
         model.addAttribute("dto", boardDTO);
     }
 
-    @PostMapping("/remove")
+    @PostMapping("remove")
     public String remove(long bno, RedirectAttributes redirectAttributes){
 
         log.info("bno: " + bno);
@@ -106,7 +106,7 @@ public class BoardController {
 
     }
 
-    @PostMapping("/modify")
+    @PostMapping("modify")
     public String modify(BoardDTO dto,
                          @ModelAttribute("requestDTO") PageRequestDTO requestDTO,
                          RedirectAttributes redirectAttributes){

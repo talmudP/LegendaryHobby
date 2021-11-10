@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/static")
+@RequestMapping("static")
 @Log4j2
 @RequiredArgsConstructor
 public class StaticController {
 
-    @GetMapping({"/index"})
+    @GetMapping({"index"})
     public void getIndex(){log.info("index");}
 }
