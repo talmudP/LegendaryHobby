@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="description" content=""/>
     <meta name="author" content=""/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
     <title>공방 찾기</title>
 </head>
 <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
@@ -22,7 +24,7 @@
                 <span class="logout" sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><button class="btn btn-danger">로그아웃</button></a></span>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/account/register">회원가입</a></li>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">마이 페이지</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">문의</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/site/contact">문의</a></li>
             </ul>
         </div>
     </div>
@@ -48,7 +50,7 @@
         </li>
         </li>
         <li class="nav-item">
-            <a href="/board/Mlist">
+            <a href="/board/list">
                 <img th:src="@{/assets/board.png}">
             </a>
         </li>
@@ -68,7 +70,7 @@
                     <h2 class="card-title">사회적 거리두기의 새로운 희망! "위드코로나"</h2>
                     <p class="card-text"> 11월 1일부터 도입될 예정인 위드코로나, 위기를 극복하고 모두 함께 코로나19를 예방하기 위한 새로운 방안이 주목 받고 있습니다.
                     코로나로 지친 우리들의 일상에 새로운 바람을 불어줄까요?</p>
-                    <a class="btn btn-primary" href="https://blog.naver.com/hackersingang/222548997847">관련 기사 →</a>
+                    <a class="btn btn-primary" href="https://blog.naver.com/hackersingang/222548997847" target="_blank">관련 기사 →</a>
                 </div>
             </div>
             <!-- Nested row for non-featured blog posts-->
@@ -82,7 +84,7 @@
                             <div class="small text-muted">부산 연제구 연안로14번길 39 1층 윤목공방</div>
                             <h2 class="card-title h4">윤목공방</h2>
                             <p class="card-text">누구나 원목을 쉽게 접할 수 있도록 노력하는 윤목공방입니다.</p>
-                            <a class="btn btn-primary" href="https://www.instagram.com/yoon.s_woodworkshop/">인스타그램 →</a>
+                            <a class="btn btn-primary" href="https://www.instagram.com/yoon.s_woodworkshop/" target="_blank">인스타그램 →</a>
                         </div>
                     </div>
                     <!-- Blog post-->
@@ -93,7 +95,7 @@
                             <div class="small text-muted">부산 동래구 온천천로437번길 28 1층 프롬레이첼</div>
                             <h2 class="card-title h4">프롬레이첼</h2>
                             <p class="card-text">친구에게 선물 주는 마음을 담아 만드는 비누공방입니다.</p>
-                            <a class="btn btn-primary" href="http://instagram.com/soapfromrachel">인스타그램 →</a>
+                            <a class="btn btn-primary" href="http://instagram.com/soapfromrachel" target="_blank">인스타그램 →</a>
                         </div>
                     </div>
                 </div>
@@ -106,7 +108,7 @@
                             <div class="small text-muted">부산 서구 꽃마을로163번길 34 예림빌라</div>
                             <h2 class="card-title h4">힐세라믹</h2>
                             <p class="card-text">흙을 만지며 지친 일상을 조금이나마 잊고 힐링하며 실생활에서도 사용가능한 도자기를 만들 수 있습니다.</p>
-                            <a class="btn btn-primary" href="http://instagram.com/healceramic">인스타그램 →</a>
+                            <a class="btn btn-primary" href="http://instagram.com/healceramic" target="_blank">인스타그램 →</a>
                         </div>
                     </div>
                     <!-- Blog post-->
@@ -117,7 +119,7 @@
                             <div class="small text-muted">부산 해운대구 좌동순환로 118 정문 상가 지하 101호</div>
                             <h2 class="card-title h4">반지 공방 아게이트</h2>
                             <p class="card-text">서로에게 좋은 경험과 소중한 선물을 만들어가세요.</p>
-                            <a class="btn btn-primary" href="http://www.instagram.com/agate_ring">인스타그램 →</a>
+                            <a class="btn btn-primary" href="http://www.instagram.com/agate_ring" target="_blank">인스타그램 →</a>
                         </div>
                     </div>
                 </div>
@@ -129,11 +131,11 @@
                     <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a>
                     </li>
                     <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                    <li class="page-item"><a class="page-link" href="/site/workshop2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="/site/workshop3">3</a></li>
+                    <li class="page-item"><a class="page-link" href="/site/workshop4">4</a></li>
+                    <li class="page-item"><a class="page-link" href="/site/workshop5">5</a></li>
+                    <li class="page-item"><a class="page-link" href="/site/workshop2">Older</a></li>
                 </ul>
             </nav>
         </div>
@@ -141,16 +143,16 @@
         <div class="col-lg-4">
             <!-- Search widget-->
             <div class="card mb-4">
-                <div class="card-header">검색</div>
-                <div class="card-body">
-                    <div class="input-group">
-                        <input class="form-control" type="text" placeholder="검색어를 입력하세요."
-                               aria-label="검색어를 입력하세요." aria-describedby="button-search"/>
-                        <button class="btn btn-primary" id="button-search" type="button">완료</button>
-                    </div>
+                <div class="card-header">공방 분포도</div>
+                <div class="row">
+                            <div class="card-body card-body-cascade text-center">
+                                <div id="map-container-google-9" class="z-depth-1-half map-container-5" style="height: 300px">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d36907.40485644712!2d129.0972098707683!3d35.1520183720068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z6rO167Cp!5e0!3m2!1sko!2skr!4v1635833202610!5m2!1sko!2skr"
+                                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </div>
                 </div>
             </div>
-            <!-- Categories widget-->
             <div class="card mb-4">
                 <div class="card-header">카테고리</div>
                 <div class="card-body">

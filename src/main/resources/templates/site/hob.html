@@ -12,7 +12,6 @@
     <link th:href="@{/css/styles.css}" rel="stylesheet"/>
     <title> 취미 찾기 </title>
 </head>
-
 <body>
 <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
     <div class="container px-4 px-lg-5">
@@ -28,7 +27,7 @@
                 <span class="logout" sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><button class="btn btn-danger">로그아웃</button></a></span>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/account/register">회원가입</a></li>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">마이 페이지</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">문의</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/site/contact">문의</a></li>
             </ul>
         </div>
     </div>
@@ -56,7 +55,7 @@
                 </li>
                 </li>
                 <li class="nav-item">
-                    <a href="/board/Mlist">
+                    <a href="/board/list">
                         <img src="/assets/board.png">
                     </a>
                 </li>

@@ -26,42 +26,13 @@ public class BoardController {
         log.info("index....");
     }
 
-    @GetMapping("Mlist")
-    public void Mlist(PageRequestDTO pageRequestDTO, Model model){
-        log.info("Mlist.................."+ pageRequestDTO);
+    @GetMapping("list")
+    public void list(PageRequestDTO pageRequestDTO, Model model){
+        log.info("list.................."+ pageRequestDTO);
 
         model.addAttribute("result", boardService.getList(pageRequestDTO));
         log.info(boardService.getList(pageRequestDTO));
     }
-    @GetMapping("Blist")
-    public void Blist(PageRequestDTO pageRequestDTO, Model model){
-        log.info("Blist.................."+ pageRequestDTO);
-
-        model.addAttribute("result", boardService.getList(pageRequestDTO));
-        log.info(boardService.getList(pageRequestDTO));
-    }
-    @GetMapping("Rlist")
-    public void Rlist(PageRequestDTO pageRequestDTO, Model model){
-        log.info("Rlist.................."+ pageRequestDTO);
-
-        model.addAttribute("result", boardService.getList(pageRequestDTO));
-        log.info(boardService.getList(pageRequestDTO));
-    }
-    @GetMapping("Slist")
-    public void Slist(PageRequestDTO pageRequestDTO, Model model){
-        log.info("Slist.................."+ pageRequestDTO);
-
-        model.addAttribute("result", boardService.getList(pageRequestDTO));
-        log.info(boardService.getList(pageRequestDTO));
-    }
-    @GetMapping("Dlist")
-    public void Dlist(PageRequestDTO pageRequestDTO, Model model){
-        log.info("Dlist.................."+ pageRequestDTO);
-
-        model.addAttribute("result", boardService.getList(pageRequestDTO));
-        log.info(boardService.getList(pageRequestDTO));
-    }
-
 
     @GetMapping("register")
     public void register(){
