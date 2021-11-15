@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <th:block th:fragment="setContent(content)">
 <head>
@@ -66,7 +66,6 @@
                             <span class="logout" sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><button class="btn btn-danger">로그아웃</button></a></span>
                             <a class="dropdown-item" href="/account/register">회원가입</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">마이페이지</a>
                             <a class="dropdown-item" href="/site/contact">문의</a>
                         </div>
                     </li>

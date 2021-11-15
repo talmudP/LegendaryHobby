@@ -29,8 +29,7 @@
                     <span class="login" sec:authorize="isAnonymous()"><a th:href="@{/login}"><button class="btn btn-secondary">로그인</button></a></span>
                     <span class="logout" sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><button class="btn btn-danger">로그아웃</button></a></span>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/account/register">회원가입</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">마이 페이지</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">문의</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/site/contact">문의</a></li>
                 </ul>
             </div>
         </div>

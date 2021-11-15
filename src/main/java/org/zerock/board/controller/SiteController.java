@@ -37,9 +37,34 @@ public class SiteController {
         log.info("workshopC");
     }
 
+    @GetMapping({"workshop2"})
+    public void getWorkshop2(){
+        log.info("workshop2");
+    }
+
+    @GetMapping({"workshop3"})
+    public void getWorkshop3(){
+        log.info("workshop3");
+    }
+
+    @GetMapping({"workshop4"})
+    public void getWorkshop4(){
+        log.info("workshop4");
+    }
+
+    @GetMapping({"workshop5"})
+    public void getWorkshop5(){
+        log.info("workshop5");
+    }
+
     @GetMapping({"hob"})
     public void getHob(){
         log.info("hob");
+    }
+
+    @GetMapping({"contact"})
+    public void getContact(){
+        log.info("contact");
     }
 
 }
