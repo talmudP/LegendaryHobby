@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -7,6 +7,7 @@
     <meta name="author" content=""/>
     <title>공방 찾기</title>
     <link th:href="@{/css/stylesSite.css}" rel="stylesheet"/>
+    <link href="/css/styles.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- Responsive navbar-->
@@ -20,10 +21,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">로그인</a></li>
+                <span class="login" sec:authorize="isAnonymous()"><a th:href="@{/login}"><button class="btn btn-secondary">로그인</button></a></span>
+                <span class="logout" sec:authorize="isAuthenticated()"><a th:href="@{/logout}"><button class="btn btn-danger">로그아웃</button></a></span>
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/account/register">회원가입</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">마이 페이지</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">문의</a></li>
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/site/contact">문의</a></li>
             </ul>
         </div>
     </div>
@@ -67,13 +68,61 @@
                 <div class="col-lg-6">
                     <!-- Blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210321_228%2F16163292194413CTTU_JPEG%2FyX25SSUWlYCwnPdoc2g2pL6C.jpeg.jpg"
+                        <a href="#!"><img class="card-img-top"
+                                          src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210321_228%2F16163292194413CTTU_JPEG%2FyX25SSUWlYCwnPdoc2g2pL6C.jpeg.jpg"
                                           alt="..."/></a>
                         <div class="card-body">
                             <div class="small text-muted">부산 서구 꽃마을로163번길 34 예림빌라</div>
                             <h2 class="card-title h4">힐세라믹</h2>
                             <p class="card-text">흙을 만지며 지친 일상을 조금이나마 잊고 힐링하며 실생활에서도 사용가능한 도자기를 만들 수 있습니다.</p>
                             <a class="btn btn-primary" href="http://instagram.com/healceramic">인스타그램 →</a>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top"
+                                          src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210114_147%2F1610610994575i6wHj_JPEG%2Fi4zbOqfYZMIZyAA4hZeP7-6G.jpg"
+                                          alt="..."/></a>
+                        <div class="card-body">
+                            <div class="small text-muted">경남 창원시 마산회원구 3·15대로 560 주택</div>
+                            <h2 class="card-title h4">하늘닮은도자기공방</h2>
+                            <p class="card-text">연령 별 교육 프로그램이 마련되어 있어 보다 효율적으로 배울 수 있습니다.</p>
+                            <a class="btn btn-primary" href="https://blog.naver.com/dmswn0220" target="_blank">블로그 →</a>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top"
+                                          src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20210327_10%2F1616835173086ytQo2_JPEG%2F1616751846341.jpg"
+                                          alt="..."/></a>
+                        <div class="card-body">
+                            <div class="small text-muted">경남 창원시 의창구 도계로4번길 38-1 2층 201호</div>
+                            <h2 class="card-title h4">꽃그리다</h2>
+                            <p class="card-text">새로운 취미활동을 찾으시거나,직장인 취미활동 또는 만들기를 좋아하시는 분들 모두 추천드리는 레진아트</p>
+                            <a class="btn btn-primary" href="https://www.instagram.com/2yooong/" target="_blank">인스타그램
+                                →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top"
+                                          src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190403_103%2F1554258656787v1TNR_JPEG%2FRewm46IONNYPvWXyKvHkMd2B.jpg"
+                                          alt="..."/></a>
+                        <div class="card-body">
+                            <div class="small text-muted">경기 수원시 장안구 장안로30번길 19 1F 윤슬세라믹스튜디오</div>
+                            <h2 class="card-title h4">윤슬도자기공방</h2>
+                            <p class="card-text">도자기 작업을 하며 자신만의 소중한 시간과 도자기 제품을 만들어보세요.</p>
+                            <a class="btn btn-primary" href="https://www.instagram.com/yunseul_ceramic/">인스타그램 →</a>
+                        </div>
+                    </div>
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top"
+                                          src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200113_142%2F1578843075604jQCKV_JPEG%2F8ZOhvyDiws9CsUDIGY42UCbV.jpg"
+                                          alt="..."/></a>
+                        <div class="card-body">
+                            <div class="small text-muted">충북 청주시 서원구 탑골로23번길 7-7</div>
+                            <h2 class="card-title h4">오늘도자기</h2>
+                            <p class="card-text">모든 것이 빠른 속도로 지나가는 요즘, 도자 작업은 느리게 또는 기다림을 알게해주는 작업입니다.</p>
+                            <a class="btn btn-primary" href="http://instagram.com/onldo.ceramic">인스타그램 →</a>
                         </div>
                     </div>
                 </div>
@@ -85,11 +134,7 @@
                     <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a>
                     </li>
                     <li class="page-item active" aria-current="page"><a class="page-link" href="#!">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">3</a></li>
-                    <li class="page-item disabled"><a class="page-link" href="#!">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">15</a></li>
-                    <li class="page-item"><a class="page-link" href="#!">Older</a></li>
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Older</a>
                 </ul>
             </nav>
         </div>
@@ -97,16 +142,16 @@
         <div class="col-lg-4">
             <!-- Search widget-->
             <div class="card mb-4">
-                <div class="card-header">Search</div>
-                <div class="card-body">
-                    <div class="input-group">
-                        <input class="form-control" type="text" placeholder="Enter search term..."
-                               aria-label="Enter search term..." aria-describedby="button-search"/>
-                        <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+                <div class="card-header">공방 분포도</div>
+                <div class="row">
+                    <div class="card-body card-body-cascade text-center">
+                        <div id="map-container-google-9" class="z-depth-1-half map-container-5" style="height: 300px">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d36907.40485644712!2d129.0972098707683!3d35.1520183720068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z6rO167Cp!5e0!3m2!1sko!2skr!4v1635833202610!5m2!1sko!2skr"
+                                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Categories widget-->
             <div class="card mb-4">
                 <div class="card-header">카테고리</div>
                 <div class="card-body">
@@ -125,13 +170,6 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Side widget-->
-            <div class="card mb-4">
-                <div class="card-header">Side Widget</div>
-                <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use,
-                    and feature the Bootstrap 5 card component!
                 </div>
             </div>
         </div>
