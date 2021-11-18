@@ -11,6 +11,7 @@ import org.zerock.board.dto.BoardDTO;
 import org.zerock.board.dto.PageRequestDTO;
 import org.zerock.board.dto.PageResultDTO;
 import org.zerock.board.entity.Board;
+import org.zerock.board.entity.ClubMember;
 import org.zerock.board.entity.Member;
 import org.zerock.board.repository.BoardRepository;
 import org.zerock.board.repository.ReplyRepository;
@@ -43,7 +44,7 @@ public class BoardServiceImpl implements BoardService {
         
         // 1) 메소드 선언, Object[] 타입을 파라미터로 받아서 BoardDTO 타입으로 반환
         // 2) 각각 Entity 타입을 DTO 타입으로 변환 후 fn 변수에 대입
-        Function<Object[], BoardDTO> fn = (en -> entityToDTO((Board)en[0], (Member)en[1], (Long)en[2]));
+        Function<Object[], BoardDTO> fn = (en -> entityToDTO((Board)en[0], (ClubMember) en[1], (Long)en[2]));
 
         // Pageable 인터페이스 타입으로 페이징 및 정렬 처리된 객체는 Page<Entity> 인터페이스 타입으로 받아야 한다.
 //        Page<Object[]> result = repository.getBoardWithReplyCount(pageRequestDTO.getPageable(Sort.by("bno").descending()));
@@ -65,7 +66,7 @@ public class BoardServiceImpl implements BoardService {
         // Board Entity 클래스 타입, Member Entity 클래스 타입, Reply Entity 타입을 객체 배열 형태로 분할해서 저장
         Object[] arr = (Object[]) result;
         // 각각의 Entity 객체를 DTO 객체 타입으로 변환 후 반환
-        return entityToDTO((Board)arr[0], (Member) arr[1], (Long) arr[2]);
+        return entityToDTO((Board)arr[0], (ClubMember)arr[1], (Long) arr[2]);
     }
 
     @Transactional // 해당 메서드를 하나의 트랜잭션으로 처리하라는 의미, no Session 발생 시 데이터베이스와 연결 생성

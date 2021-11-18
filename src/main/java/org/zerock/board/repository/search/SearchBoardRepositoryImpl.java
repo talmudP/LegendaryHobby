@@ -13,10 +13,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
-import org.zerock.board.entity.Board;
-import org.zerock.board.entity.QBoard;
-import org.zerock.board.entity.QMember;
-import org.zerock.board.entity.QReply;
+import org.zerock.board.entity.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,14 +34,16 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
         // QBoard(Q도메인)의 객체를 가져온다.
         QBoard board = QBoard.board;
         QReply reply = QReply.reply;
-        QMember member = QMember.member;
+//        QMember member = QMember.member; // 클럽 멤버로 교체 해야 함.
+        QClubMember clubMember = QClubMember.clubMember;
+
 
         JPQLQuery<Board> jpqlQuery = from(board);
-        jpqlQuery.leftJoin(member).on(board.writer.eq(member));
+        jpqlQuery.leftJoin(clubMember).on(board.email.eq(clubMember));
         jpqlQuery.leftJoin(reply).on(reply.board.eq(board));
         
 //        jpqlQuery.select(board, member.email, reply.count()).groupBy(board);
-        JPQLQuery<Tuple> tuple = jpqlQuery.select(board, member.email, reply.count());
+        JPQLQuery<Tuple> tuple = jpqlQuery.select(board, clubMember, reply.count());
         tuple.groupBy(board);
 
         log.info("-----------------------");
@@ -64,16 +63,17 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
 
         // Querydsl 처리, Q도메인 클래스 객체를 가져옴
         QBoard board = QBoard.board;
-        QMember member = QMember.member;
+//        QMember member = QMember.member; // ClubMember로 교체해야 함
+        QClubMember clubMember = QClubMember.clubMember;
         QReply reply = QReply.reply;
         
         // SQL문 작성, SPQLQuery: 쿼리 메소드나 @Query에서 처리하기 어려운 복잡한 쿼리문 작성 시 사용
         JPQLQuery<Board> jpqlQuery = from(board);
-        jpqlQuery.leftJoin(member).on(board.writer.eq(member));
+        jpqlQuery.leftJoin(clubMember).on(board.email.eq(clubMember));
         jpqlQuery.leftJoin(reply).on(reply.board.eq(board));
 
         // Tuple: 정해진 엔티티 객체 단위가 아니라 각각의 데이터를 추출하는 경우 사용, 여러 테이블의 집합 함수를 처리하는 것
-        JPQLQuery<Tuple> tuple = jpqlQuery.select(board, member, reply.count());
+        JPQLQuery<Tuple> tuple = jpqlQuery.select(board, clubMember, reply.count());
 
         // BooleanBuilder: 쿼리의 조건 설정인 where뒤의 조건을 생성해주는 것
         // BooleanExpression: 복잡한 동적 쿼리를 표현, QueryDSL Repository의 표현을 좀더 직관적으로 볼 수 있도록 리팩토링하는 과정
@@ -96,7 +96,7 @@ public class SearchBoardRepositoryImpl extends QuerydslRepositorySupport impleme
                         conditionBuilder.or(board.title.contains(keyword));
                         break;
                     case "w":
-                        conditionBuilder.or(member.email.contains(keyword));
+                        conditionBuilder.or(clubMember.email.contains(keyword));
                         break;
                     case "c":
                         conditionBuilder.or(board.content.contains(keyword));

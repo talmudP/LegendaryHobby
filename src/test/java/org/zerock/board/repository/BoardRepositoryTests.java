@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 import org.zerock.board.entity.Board;
+import org.zerock.board.entity.ClubMember;
 import org.zerock.board.entity.Member;
 
 import java.util.Arrays;
@@ -24,13 +25,14 @@ public class BoardRepositoryTests {
 
     @Test
     public void insertBoard() {
-        IntStream.rangeClosed(1, 100).forEach(i -> { // 게시판 데이터 저장 테스트
-            Member member = Member.builder().email("user" + i + "@aaa.com").build();
+        IntStream.rangeClosed(1, 10).forEach(i -> { // 게시판 데이터 저장 테스트
+//            Member member = Member.builder().email("user" + i + "@aaa.com").build();
+            ClubMember clubMember = ClubMember.builder().email("admin" + i + "@test.com").build();
 
             Board board = Board.builder()
                     .title("Title..." + i) // 글 제목
                     .content("Content..." + i) // 글 내용
-                    .writer(member) // 글 작성자(ID)
+                    .email(clubMember) // 글 작성자(ID)
                     .build();
 
             boardRepository.save(board);
@@ -49,7 +51,7 @@ public class BoardRepositoryTests {
         // board 테이블에서 bno가 100인 데이터 출력
         System.out.println(board);
         // board 테이블에서 bno가 100인 데이터의 writer_email과 같은 데이터를 member 테이블에서 출력
-        System.out.println(board.getWriter());
+        System.out.println(board.getEmail());
     }
 
     @Test
